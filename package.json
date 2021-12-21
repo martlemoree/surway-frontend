@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "17.0.1",
-    "npm": "8.2.0"
+    "node": "16.11.0",
+    "npm": "8.0.0"
   },
   "scripts": {
-    "start": "vue-cli-service --openssl-legacy-provider serve",
-    "build": "vue-cli-service --openssl-legacy-provider build",
-    "test:unit": "vue-cli-service --openssl-legacy-provider test:unit",
-    "lint": "vue-cli-service --openssl-legacy-provider lint"
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
