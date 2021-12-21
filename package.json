@@ -7,10 +7,10 @@
     "npm": "8.2.0"
   },
   "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "start": "vue-cli-service --openssl-legacy-provider serve",
+    "build": "vue-cli-service --openssl-legacy-provider build",
+    "test:unit": "vue-cli-service --openssl-legacy-provider test:unit",
+    "lint": "vue-cli-service --openssl-legacy-provider lint"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
