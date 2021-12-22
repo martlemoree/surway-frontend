@@ -12,30 +12,24 @@ export default {
   name: 'Surveys',
   data() {
     return {
-      surveys: [
-        {
-          id: 1,
-          title: 'Corona Maßnahmen',
-          desciption: 'Bewertung der Strenge der Corona Maßnahmen',
-          limited: true,
-          limitDate: '31.12.2021',
-        },
-        {
-          id: 2,
-          title: 'Klimaerwärmung',
-          description: 'Wie viel Wissen haben Sie über Klimaerwärmung?',
-          limited: false,
-          limitDate: null,
-        },
-        {
-          id: 4,
-          title: 'Inflationsängste',
-          description: 'Themen zur ansteigenden Inflation',
-          limited: true,
-          limitDate: '31.03.2022',
-        },
-      ],
+      surveys: [],
     };
+  },
+  mounted() {
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/surveys'
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+
+    fetch(endpoint, requestOptions)
+      .then((response) => { response.json(); })
+      .then((result) => {
+        result.forEach((survey) => {
+          this.surveys.push(survey);
+        });
+      })
+      .catch((error) => { console.log('error', error); });
   },
 };
 </script>
