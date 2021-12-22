@@ -16,7 +16,7 @@ export default {
     };
   },
   mounted() {
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/surveys'
+    const endpoint = `${process.env.VUE_APP_BACKEND_BASE_URL}/api/v1/surveys`;
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
