@@ -26,7 +26,7 @@ export default {
 
     fetch(endpoint, requestOptions)
       .then((response) => {
-        response.json();
+        return response.json();
       })
       .then((result) => {
         result.forEach((survey) => {
