@@ -1,21 +1,45 @@
 <template>
   <h1>Aktuell {{ surveys.length }} Surveys für dich:</h1>
-  <ul class="list-group">
-    <div class="col" v-for="survey in surveys" :key="survey.id">
-      <li class="list-group-item">
-        {{ survey.title }}
-      </li>
-    </div>
-  </ul>
+  <div class="container-fluid">
+    <survey-list :surveys="this.surveys"></survey-list>
+  </div>
+  <create-survey-form @created="addSurvey"></create-survey-form>
 </template>
 
 <script>
+import SurveyList from '@/components/SurveyList.vue';
+import CreateSurveyForm from '@/components/CreateSurveyForm.vue';
+
 export default {
   name: 'Surveys',
+  components: {
+    SurveyList,
+    CreateSurveyForm,
+  },
   data() {
     return {
       surveys: [],
     };
+  },
+  methods: {
+    addSurvey(surveyLocation) {
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + surveyLocation;
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+      };
+
+      fetch(endpoint, requestOptions)
+        .then((response) => {
+          response.json();
+        })
+        .then((survey) => {
+          this.surveys.push(survey);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+    },
   },
   mounted() {
     const endpoint = `${process.env.VUE_APP_BACKEND_BASE_URL}/api/v1/surveys`;
