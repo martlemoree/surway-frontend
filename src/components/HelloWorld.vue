@@ -1,7 +1,19 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button type="button" class="btn btn-primary">Primary</button>
+    <a href="http://localhost:8081/about">
+      <button
+        type="button"
+        class="btn btn-primary">I don't get it. Explain me!
+      </button>
+    </a>
+    <br>
+    <br>
+    <a href="http://localhost:8081/surveys">
+      <button type="button"
+              class="btn btn-primary">No time for explanation. Learning by doing!
+      </button>
+    </a>
   </div>
 </template>
 
